@@ -24,3 +24,36 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+h1,
+h2,
+p {
+    color: var(--lib-color-blueDark);
+    margin: 0;
+}
+
+h1 {
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 20;
+    font-weight: 500;
+}
+
+p {
+    text-align: justify;
+}
+
+ion-button {
+    --background: var(--lib-color-red);
+    --background-hover: var(--lib-color-red);
+    --background-activated: var(--lib-color-red);
+    --background-activated-opacity: 0.7;
+
+}
+
+ion-slide {
+    --bullet-background-active: var(--lib-color-red);
+}
