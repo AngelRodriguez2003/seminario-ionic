@@ -1,0 +1,12 @@
+<ion-content>
+  <form [formGroup]="loginForm">
+
+    <ion-item fill="solid">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+      <ion-note slot="helper">Ingresa aqui tu email</ion-note>
+      <ion-note slot="error">Invalid email</ion-note>
+    </ion-item>
+
+  </form>
+</ion-content>

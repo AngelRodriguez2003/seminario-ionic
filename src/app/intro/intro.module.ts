@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { IntroPageRoutingModule } from './intro-routing.module';
 
 import { IntroPage } from './intro.page';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    IntroPageRoutingModule
+    IntroPageRoutingModule,
+    IonicStorageModule.forRoot()
   ],
   declarations: [IntroPage]
 })
-export class IntroPageModule {}
+export class IntroPageModule { }
