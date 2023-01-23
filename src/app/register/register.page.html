@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goToLogin()">
+        Back
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <figure class="size-logo">
+        <img src="../../assets/libreria-nacional-logo-768.png" />
+      </figure>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>Ingresa tus datos</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input placeholder="Enter text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input placeholder="Enter text" formControlName="last_name"></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-item>
+        <ion-select formControlName="document_type" interface="popover" placeholder="Tipo documento">
+          <ion-select-option *ngFor="let option of documentTypes"
+            value="{{option.value}}">{{option.label}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-label position="floating">Numero documento</ion-label>
+      <ion-input type="number" formControlName="document_number"> </ion-input>
+    </ion-item>
+    <ion-list>
+      <ion-item>
+        <ion-select formControlName="career" interface="popover" placeholder="Carrera">
+          <ion-select-option *ngFor="let option of careers"
+            value="{{option.value}}">{{option.label}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input placeholder="ejemplo@gmail.com" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" placeholder="*******" formControlName="password"></ion-input>
+    </ion-item>
+    <div class="ion-margin-top">
+      <ion-row>
+        <ion-button type="submit">
+          Registrarse
+        </ion-button>
+      </ion-row>
+    </div>
+  </form>
+</ion-content>

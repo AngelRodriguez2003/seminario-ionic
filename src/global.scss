@@ -57,3 +57,12 @@ ion-button {
 ion-slide {
     --bullet-background-active: var(--lib-color-red);
 }
+
+ion-content {
+    --background: #ffffff;
+}
+
+ion-toolbar {
+    --background: var(--lib-color-red);
+    --color: "white"
+}

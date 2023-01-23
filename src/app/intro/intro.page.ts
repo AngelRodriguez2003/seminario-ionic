@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { Storage } from '@ionic/storage-angular';
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.page.html',
@@ -39,9 +39,10 @@ export class IntroPage implements OnInit {
       description: "En una oscura versión del futuro próximo, doce chicos y doce chicas se ven obligados a participar en un reality show llamado “Los juegos del hambre”. Solo hay una regla: matar o morir. ",
     },
   ]
-  constructor(private router: Router) { }
+  constructor(private router: Router, private storage: Storage) { }
   finish() {
     this.router.navigateByUrl('/home')
+    this.storage.set("isIntroShowed", true);
   }
   ngOnInit() {
   }
