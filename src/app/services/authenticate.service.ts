@@ -7,9 +7,14 @@ import { Storage } from '@ionic/storage-angular';
 export class AuthenticateService {
 
   constructor(private storage: Storage) { }
-  loginUser(credentials: any) {
+  async loginUser(credentials: any) {
+    let user = await this.storage.get('user')
+    if (user != null) {
+      user.password = atob(user.password)
+    }
     return new Promise((accept, reject) => {
-      if (credentials.email == "angel@gmail.com" && credentials.password == "123456") {
+
+      if (credentials.email == user.email && credentials.password == user.password) {
         accept("Login Exitoso");
       } else {
         reject("Login Fallido");
