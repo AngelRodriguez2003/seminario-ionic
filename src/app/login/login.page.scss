@@ -1,0 +1,18 @@
+ion-content {
+    --background: white;
+}
+
+ion-button {
+    width: 100%;
+}
+
+ion-row:nth-child(2) ion-button {
+    --background: var(--lib-color-blueDark);
+    --background-activated: var(--lib-color-blueDark);
+    --background-focused: var(--lib-color-blueDark);
+    --background-hover: var(--lib-color-blueDark);
+}
+
+div {
+    color: var(--ion-color-danger-shade);
+}
