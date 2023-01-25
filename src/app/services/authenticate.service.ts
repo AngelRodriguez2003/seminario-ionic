@@ -9,15 +9,16 @@ export class AuthenticateService {
   constructor(private storage: Storage) { }
   async loginUser(credentials: any) {
     let user = await this.storage.get('user')
-    if (user != null) {
-      user.password = atob(user.password)
-    }
-    return new Promise((accept, reject) => {
 
-      if (credentials.email == user.email && credentials.password == user.password) {
-        accept("Login Exitoso");
-      } else {
+    return new Promise((accept, reject) => {
+      if (user === null) {
         reject("Login Fallido");
+
+      } else {
+        user.password = atob(user.password)
+        if (credentials.email == user.email && credentials.password == user.password) {
+          accept("Login Exitoso");
+        }
       }
     });
   }
