@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authenticate.service';
 
 @Component({
@@ -14,51 +14,48 @@ export class RegisterPage implements OnInit {
   documentTypes = [
     {
       label: "Tarjeta de identidad",
-      value: 'TI'
+      value: 'ti'
     },
     {
       label: "Cédula",
-      value: 'CC'
+      value: 'cc'
     },
     {
       label: "Cédula de extranjería",
-      value: 'CE'
+      value: 'ce'
     },
     {
       label: "Registro civil",
-      value: 'RC'
+      value: 'rc'
     },
     {
       label: "Pasaporte",
-      value: 'PS'
+      value: 'ps'
     },
   ]
   careers = [
     {
       label: "Ingenieria de sistemas",
-      value: 0
-    },
-    {
-      label: "Ingenieria Electronica",
-      value: 1
+      value: "sistemas"
     },
     {
       label: "Ingenieria industrial",
-      value: 2
+      value: "industrial"
     },
     {
       label: "Administracion de empresas",
-      value: 3
+      value: "administracion"
     },
     {
-      label: "Administración Logística",
-      value: 4
+      label: "Contaduria",
+      value: "contaduria"
     }
 
   ]
   constructor(private navCtrl: NavController,
     private formBuilder: FormBuilder,
-    private authenticate: AuthenticateService
+    private authenticate: AuthenticateService,
+    private alertController: AlertController
   ) {
 
     this.registerForm = this.formBuilder.group({
@@ -110,7 +107,20 @@ export class RegisterPage implements OnInit {
     console.log(register_form)
     this.authenticate.registerUser(register_form).then(() => {
       this.navCtrl.navigateForward("/login");
+    }).catch(err => {
+      this.presentAlert("Opps", "Hubo un error", err);
     });
+  }
+  async presentAlert(header: any, subHeader: any, message: any) {
+    const alert = await this.alertController.create(
+      {
+        header: header,
+        subHeader: subHeader,
+        message: message,
+        buttons: ['Ok']
+      }
+    );
+    await alert.present();
   }
 
 

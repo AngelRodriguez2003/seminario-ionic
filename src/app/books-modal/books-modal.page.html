@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button slot="end" (click)="closeModal()">
+        Cerrar
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{author.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let option of booksAuthor">
+    <ion-item id="{{option.id}}">
+        <img src="{{option.cover}}" class='cover' alt="">
+        <ion-label>{{option.name}}</ion-label>
+<!--         <p>Generos:</p>
+        <p *ngFor="let gender of author.genres" >{{gender}} </p> -->
+<!--         <p>{{option.editorial}}</p>
+ -->    </ion-item>
+  </ion-list>
+</ion-content>
