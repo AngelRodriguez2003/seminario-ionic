@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Volver"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Top 10 libros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container-div" *ngFor="let book of topBooks">
+    <div class="ion-margin">
+      <h1 class="ion-text-center">{{book.position}}. {{book.name}}</h1>
+      <div class="ion-margin">
+        <img src="{{book.cover}}" alt="{{book.name}}">
+        <p class="ion-text-center ion-margin"><ion-icon name="star"></ion-icon> {{book.likes}} me gusta</p>
+      </div>
+      <h2>Generos:</h2>
+      <ion-badge *ngFor="let gender of book.genres" class="ion-margin">{{gender}}</ion-badge>
+      <h2>Resumen:</h2>
+      <p>{{book.resumen}}</p>
+    </div>
+  </div>
+
+</ion-content>

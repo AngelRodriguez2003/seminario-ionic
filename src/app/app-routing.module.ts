@@ -29,8 +29,20 @@ const routes: Routes = [
   },
   {
     path: 'books-modal',
-    loadChildren: () => import('./books-modal/books-modal.module').then( m => m.BooksModalPageModule)
+    loadChildren: () => import('./books-modal/books-modal.module').then(m => m.BooksModalPageModule)
   },
+  {
+    path: 'book-detail-modal',
+    loadChildren: () => import('./book-detail-modal/book-detail-modal.module').then(m => m.BookDetailModalPageModule)
+  },
+  {
+    path: 'author-detail-modal',
+    loadChildren: () => import('./author-detail-modal/author-detail-modal.module').then( m => m.AuthorDetailModalPageModule)
+  },
+  {
+    path: 'top',
+    loadChildren: () => import('./top/top.module').then( m => m.TopPageModule)
+  }
 ];
 
 @NgModule({

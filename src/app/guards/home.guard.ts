@@ -13,7 +13,7 @@ export class HomeGuard implements CanActivate {
   async canActivate() {
     const intro = await this.storage.get('isIntroShowed');
     if (intro) {
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/menu/home');
 
       return false;
     } else {

@@ -1,14 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>BooksModal</ion-title>
     <ion-buttons>
       <ion-button slot="end" (click)="closeModal()">
         Cerrar
       </ion-button>
     </ion-buttons>
+    <ion-title>{{author.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  {{author.name}}
+  <ion-list *ngFor="let option of booksAuthor">
+    <ion-item id="{{option.id}}">
+      <ion-label>{{option.name}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

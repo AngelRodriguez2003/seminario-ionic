@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authenticate.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class RegisterPage implements OnInit {
     },
     {
       label: "Cédula",
-      value: 'CC'
+      value: 'cc'
     },
     {
       label: "Cédula de extranjería",
@@ -36,29 +36,30 @@ export class RegisterPage implements OnInit {
   careers = [
     {
       label: "Ingenieria de sistemas",
-      value: 0
+      value: "sistemas"
     },
     {
       label: "Ingenieria Electronica",
-      value: 1
+      value: "Electronica"
     },
     {
       label: "Ingenieria industrial",
-      value: 2
+      value: "industrial"
     },
     {
       label: "Administracion de empresas",
-      value: 3
+      value: "empresas"
     },
     {
       label: "Administración Logística",
-      value: 4
+      value: "Logística"
     }
 
   ]
   constructor(private navCtrl: NavController,
     private formBuilder: FormBuilder,
-    private authenticate: AuthenticateService
+    private authenticate: AuthenticateService,
+    private alertController: AlertController
   ) {
 
     this.registerForm = this.formBuilder.group({
@@ -110,7 +111,20 @@ export class RegisterPage implements OnInit {
     console.log(register_form)
     this.authenticate.registerUser(register_form).then(() => {
       this.navCtrl.navigateForward("/login");
+    }).catch(err => {
+      this.presentAlert("Opps", "Hubo un error", err);
     });
+  }
+  async presentAlert(header: any, subHeader: any, message: any) {
+    const alert = await this.alertController.create(
+      {
+        header: header,
+        subHeader: subHeader,
+        message: message,
+        buttons: ['Ok']
+      }
+    );
+    await alert.present();
   }
 
 
