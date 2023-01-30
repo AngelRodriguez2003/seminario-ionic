@@ -9,7 +9,7 @@
     <h3 class="ion-text-center ion-text-uppercase ion-margin">Autores recomendados</h3>
 
     <ion-slides [options]="slideOps">
-        <ion-slide *ngFor="let author of authors">
+        <ion-slide class="ion-justify-content-start" *ngFor="let author of authors">
             <ion-avatar (click)="showBooks(author)">
                 <img src="{{author.photo}}" />
                 <p class="ion-text-center">{{author.name}}</p>

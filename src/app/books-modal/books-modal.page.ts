@@ -24,7 +24,8 @@ export class BooksModalPage implements OnInit {
     this.author = this.navParams.get("author");
     this.libraryService.getBooksAuthor(this.author?.id).then(res => {
       this.booksAuthor = res;
-
+      console.log("info libro:",this.booksAuthor);
+      
     })
 
   }

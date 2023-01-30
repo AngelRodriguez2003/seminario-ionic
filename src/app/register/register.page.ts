@@ -14,7 +14,7 @@ export class RegisterPage implements OnInit {
   documentTypes = [
     {
       label: "Tarjeta de identidad",
-      value: 'TI'
+      value: 'ti'
     },
     {
       label: "Cédula",
@@ -22,15 +22,15 @@ export class RegisterPage implements OnInit {
     },
     {
       label: "Cédula de extranjería",
-      value: 'CE'
+      value: 'ce'
     },
     {
       label: "Registro civil",
-      value: 'RC'
+      value: 'rc'
     },
     {
       label: "Pasaporte",
-      value: 'PS'
+      value: 'ps'
     },
   ]
   careers = [
@@ -39,20 +39,16 @@ export class RegisterPage implements OnInit {
       value: "sistemas"
     },
     {
-      label: "Ingenieria Electronica",
-      value: "Electronica"
-    },
-    {
       label: "Ingenieria industrial",
       value: "industrial"
     },
     {
       label: "Administracion de empresas",
-      value: "empresas"
+      value: "administracion"
     },
     {
-      label: "Administración Logística",
-      value: "Logística"
+      label: "Contaduria",
+      value: "contaduria"
     }
 
   ]

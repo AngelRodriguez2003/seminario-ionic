@@ -13,9 +13,9 @@ export class HomePage {
   booksOff: any;
 
   slideOps = {
-    initialSlide: 1,
+    initialSlide: 0,
     slidesPerView: 3,
-    centeredSlides: true,
+    centeredSlides: false,
     speed: 400,
     spaceBetween: 10
   }

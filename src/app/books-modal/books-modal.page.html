@@ -12,7 +12,11 @@
 <ion-content>
   <ion-list *ngFor="let option of booksAuthor">
     <ion-item id="{{option.id}}">
-      <ion-label>{{option.name}}</ion-label>
-    </ion-item>
+        <img src="{{option.cover}}" class='cover' alt="">
+        <ion-label>{{option.name}}</ion-label>
+<!--         <p>Generos:</p>
+        <p *ngFor="let gender of author.genres" >{{gender}} </p> -->
+<!--         <p>{{option.editorial}}</p>
+ -->    </ion-item>
   </ion-list>
 </ion-content>
