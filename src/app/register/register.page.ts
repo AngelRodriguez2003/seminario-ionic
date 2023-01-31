@@ -52,6 +52,31 @@ export class RegisterPage implements OnInit {
     }
 
   ]
+  validation_message = {
+    email: [
+      { type: "required", message: "El Email es Obligatorio" },
+      { type: "pattern", message: "Tu email no es valido" }
+    ],
+    password: [
+      { type: "required", message: "El Password es Obligatorio" },
+      { type: "minlength", message: "La contraseña debe tener almenos 5 caracteres " }
+    ],
+    name: [
+      { type: "required", message: "El Nombre es Obligatorio" },
+    ],
+    last_name: [
+      { type: "required", message: "El Apellido es Obligatorio" },
+    ],
+    document_type: [
+      { type: "required", message: "El tipo de documento es Obligatorio" },
+    ],
+    document_number: [
+      { type: "required", message: "El documento es Obligatorio" },
+    ],
+    career: [
+      { type: "required", message: "la carrera es Obligatorio" },
+    ]
+  }
   constructor(private navCtrl: NavController,
     private formBuilder: FormBuilder,
     private authenticate: AuthenticateService,

@@ -20,12 +20,28 @@
       <ion-label position="floating">Nombre</ion-label>
       <ion-input placeholder="Enter text" formControlName="name"></ion-input>
     </ion-item>
-
+    <ng-container *ngFor="let validation of validation_message.name">
+      <div *ngIf="
+    registerForm.get('name')?.hasError(validation.type) && 
+    (registerForm.get('name')?.dirty || 
+    registerForm.get('name')?.touched)      
+    " class="ion-padding color-error">
+        {{validation.message}}
+      </div>
+    </ng-container>
     <ion-item>
       <ion-label position="floating">Apellido</ion-label>
       <ion-input placeholder="Enter text" formControlName="last_name"></ion-input>
     </ion-item>
-
+    <ng-container *ngFor="let validation of validation_message.last_name">
+      <div *ngIf="
+    registerForm.get('last_name')?.hasError(validation.type) && 
+    (registerForm.get('last_name')?.dirty || 
+    registerForm.get('last_name')?.touched)      
+    " class="ion-padding color-error">
+        {{validation.message}}
+      </div>
+    </ng-container>
     <ion-list>
       <ion-item>
         <ion-select formControlName="document_type" interface="popover" placeholder="Tipo documento">
@@ -34,10 +50,28 @@
         </ion-select>
       </ion-item>
     </ion-list>
+    <ng-container *ngFor="let validation of validation_message.document_type">
+      <div *ngIf="
+    registerForm.get('document_type')?.hasError(validation.type) && 
+    (registerForm.get('document_type')?.dirty || 
+    registerForm.get('document_type')?.touched)      
+    " class="ion-padding color-error">
+        {{validation.message}}
+      </div>
+    </ng-container>
     <ion-item>
       <ion-label position="floating">Numero documento</ion-label>
       <ion-input formControlName="document_number"> </ion-input>
     </ion-item>
+    <ng-container *ngFor="let validation of validation_message.document_number">
+      <div *ngIf="
+    registerForm.get('document_number')?.hasError(validation.type) && 
+    (registerForm.get('document_number')?.dirty || 
+    registerForm.get('document_number')?.touched)      
+    " class="ion-padding color-error">
+        {{validation.message}}
+      </div>
+    </ng-container>
     <ion-list>
       <ion-item>
         <ion-select formControlName="career" interface="popover" placeholder="Carrera">
@@ -46,14 +80,41 @@
         </ion-select>
       </ion-item>
     </ion-list>
+    <ng-container *ngFor="let validation of validation_message.career">
+      <div *ngIf="
+    registerForm.get('career')?.hasError(validation.type) && 
+    (registerForm.get('career')?.dirty || 
+    registerForm.get('career')?.touched)      
+    " class="ion-padding color-error">
+        {{validation.message}}
+      </div>
+    </ng-container>
     <ion-item>
       <ion-label position="floating">Email</ion-label>
       <ion-input placeholder="ejemplo@gmail.com" formControlName="email"></ion-input>
     </ion-item>
+    <ng-container *ngFor="let validation of validation_message.email">
+      <div *ngIf="
+    registerForm.get('email')?.hasError(validation.type) && 
+    (registerForm.get('email')?.dirty || 
+    registerForm.get('email')?.touched)      
+    " class="ion-padding color-error">
+        {{validation.message}}
+      </div>
+    </ng-container>
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
       <ion-input type="password" placeholder="*******" formControlName="password"></ion-input>
     </ion-item>
+    <ng-container *ngFor="let validation of validation_message.password">
+      <div *ngIf="
+    registerForm.get('password')?.hasError(validation.type) && 
+    (registerForm.get('password')?.dirty || 
+    registerForm.get('password')?.touched)      
+    " class="ion-padding color-error">
+        {{validation.message}}
+      </div>
+    </ng-container>
     <div class="ion-margin-top">
       <ion-row>
         <ion-button type="submit">
